@@ -1,0 +1,47 @@
+body {
+  background-color: #f8f6f3;
+  font-family: "Inter", sans-serif;
+}
+
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background-color: #fdfdfd;
+  border-right: 1px solid #ddd;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #1f3b2f;
+}
+
+.nav-link {
+  color: #1f3b2f;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 10px 15px;
+}
+
+.nav-link:hover {
+  background-color: #e0e6e3;
+  color: #1f3b2f;
+}
+
+.nav-link.active {
+  background-color: #d6dfda;
+  font-weight: 600;
+}
+
+.content {
+  background-color: #f8f6f3;
+}
+
+.btn-danger {
+  background-color: #e74c3c;
+  border: none;
+  border-radius: 10px;
+}
+.btn-danger:hover {
+  background-color: #c0392b;
+}

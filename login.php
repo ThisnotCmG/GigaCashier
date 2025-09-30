@@ -22,7 +22,7 @@ if ($result->num_rows > 0) {
 
         // Redirect sesuai role
         if ($row['role'] == 'Owner') {
-            header("Location: owner_dashboard.php");
+            header("Location: Owner\owner_dashboard.php");
         } elseif ($row['role'] == 'Manajer') {
             header("Location: manajer_dashboard.php");
         } elseif ($row['role'] == 'Kasir') {
