@@ -11,7 +11,9 @@
 <div class="d-flex">
 
   <div class="sidebar d-flex flex-column p-3">
-    <h2 class="brand mb-4">GigaCashier</h2>
+    <div class="brand mb-4">
+      GigaCashier
+    </div>
     <ul class="nav flex-column mb-auto">
       <li class="nav-item mb-2">
         <a href="owner_dashboard.php" class="nav-link">
