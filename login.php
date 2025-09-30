@@ -16,7 +16,7 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
 
     // Password dicek (disarankan pakai password_hash di database)
-    if (password_verify($password, $row['password'])) {
+    if ($password === $row['password']) {
         $_SESSION['user_id'] = $row['user_id'];
         $_SESSION['role'] = $row['role'];
 
@@ -26,7 +26,7 @@ if ($result->num_rows > 0) {
         } elseif ($row['role'] == 'Manajer') {
             header("Location: manajer_dashboard.php");
         } elseif ($row['role'] == 'Kasir') {
-            header("Location: kasir_dashboard.php");
+            header("Location: Kasir\Kasir.php");
         }
         exit;
     } else {

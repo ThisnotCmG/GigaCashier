@@ -1,4 +1,11 @@
-
+<?php
+session_start();
+$error = "";
+if (isset($_SESSION['error'])) {
+  $error = $_SESSION['error'];
+  unset($_SESSION['error']); // supaya pesan hanya tampil sekali
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,24 +24,23 @@
     </div>
 
     <div class="login-form w-100" style="max-width: 360px;">
-      <form>
+      <?php if($error): ?>
+        <div class="alert alert-danger"><?php echo $error; ?></div>
+      <?php endif; ?>
+      <form action="login.php" method="POST">
         <div class="mb-3">
           <label for="username" class="form-label">Username</label>
           <div class="input-group">
-            <span class="input-group-text">
-              <i class="bi bi-person"></i>
-            </span>
-            <input type="text" class="form-control" id="username" placeholder="Username">
+            <span class="input-group-text"><i class="bi bi-person"></i></span>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
           </div>
         </div>
 
         <div class="mb-4">
           <label for="password" class="form-label">Password</label>
           <div class="input-group">
-            <span class="input-group-text">
-              <i class="bi bi-key"></i>
-            </span>
-            <input type="password" class="form-control" id="password" placeholder="Password">
+            <span class="input-group-text"><i class="bi bi-key"></i></span>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
             <button type="button" class="input-group-text btn-toggle-password" onclick="togglePassword()">
               <i class="bi bi-eye" id="toggleIcon"></i>
             </button>
