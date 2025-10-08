@@ -12,3 +12,7 @@ function togglePassword() {
         toggleIcon.classList.add("bi-eye");
       }
     }
+
+function confirmLogout() {
+    return confirm("Apakah kamu yakin ingin logout?");
+}

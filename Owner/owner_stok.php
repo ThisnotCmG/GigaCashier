@@ -37,17 +37,75 @@
       </li>
     </ul>
     <div class="mt-auto">
-      <a href="logout.php" class="btn btn-danger w-100">
+      <a href="../logout.php" class="btn btn-danger w-100" onclick="return confirmLogout();">
         <i class="bi bi-box-arrow-left me-1"></i> Log Out
       </a>
     </div>
   </div>
 
+  <div class="content flex-grow-1 p-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h3>Stok Barang</h3>
+      <div class="d-flex align-items-center gap-3">
+        <button class="btn btn-light btn-icon"><i class="bi bi-bell"></i></button>
+        <button class="btn btn-light btn-icon"><i class="bi bi-person-circle"></i></button>
+      </div>
+    </div>
 
   <div class="content flex-grow-1 p-4">
-    <h3>Dashboard</h3>
-    <p>Halaman Stok default.</p>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <a href="add_stok.php" class="btn btn-success">
+        <i class="bi bi-plus-circle me-1"></i> Tambah Barang
+      </a>
+    </div>
+
+    <div class="card table-card">
+      <div class="card-body">
+        <table class="table table-borderless align-middle mt-3">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Nama Barang</th>
+              <th>Stok Min.</th>
+              <th>Stok</th>
+              <th>Tanggal Kadaluarsa</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $no = 1;
+            if ($result->num_rows > 0) {
+              while ($row = $result->fetch_assoc()) {
+                echo "<tr>
+                  <td>{$no}</td>
+                  <td>{$row['nama_barang']}</td>
+                  <td>{$row['stok_min']}</td>
+                  <td>{$row['stok']}</td>
+                  <td>{$row['tgl_kadaluarsa']}</td>
+                  <td>
+                    <a href='edit_stok.php?id={$row['id_barang']}' class='btn btn-sm btn-warning me-1'><i class='bi bi-pencil'></i></a>
+                    <a href='delete_stok.php?id={$row['id_barang']}' class='btn btn-sm btn-danger' onclick=\"return confirm('Yakin hapus data ini?')\"><i class='bi bi-trash'></i></a>
+                  </td>
+                </tr>";
+                $no++;
+              }
+            } else {
+              echo "<tr><td colspan='6' class='text-center'>Belum ada data stok</td></tr>";
+            }
+            ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
 </body>
+
+<script>
+function confirmLogout() {
+  return confirm("Apakah Anda yakin ingin logout?");
+}
+</script>
+
 </html>

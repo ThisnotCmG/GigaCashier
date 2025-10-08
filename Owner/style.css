@@ -8,6 +8,10 @@ body {
   min-height: 100vh;
   background-color: #fdfdfd;
   border-right: 1px solid #ddd;
+  border-top-right-radius: 13px;
+  border-bottom-right-radius: 13px;
+  display: flex;
+  flex-direction: column;
 }
 
 .brand {
@@ -16,6 +20,37 @@ body {
   color: #1f3b2f;
   margin-bottom: 2rem;
   text-align: center;
+  padding-top: 20px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 20px;
+}
+
+.stat-card {
+  background-color: #a7b79e;
+  border: none;
+  border-radius: 15px;
+  color: white;
+}
+
+.chart-card {
+  background-color: #a7b79e;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  min-height: 250px;
+}
+
+.table-card {
+  background-color: #a7b79e;
+  border: none;
+  border-radius: 15px;
+  color: white;
+}
+
+.table th, .table td {
+  background-color: #a7b79e;
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white;
 }
 
 .nav-link {
@@ -46,4 +81,15 @@ body {
 }
 .btn-danger:hover {
   background-color: #c0392b;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  color: #1f3b2f;
+  font-size: 1.3rem;
+}
+.btn-icon:hover {
+  background-color: #e0e6e3;
+  border-radius: 8px;
 }
